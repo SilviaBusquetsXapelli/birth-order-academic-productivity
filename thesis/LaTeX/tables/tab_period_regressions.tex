@@ -1,0 +1,74 @@
+\begin{table}[H]
+\centering
+\caption{Birth-Order Productivity Differences Across Historical Periods}
+\label{tab:period_regressions}
+
+\begin{tablebody}
+\begin{tabular}{l c c}
+\toprule
+ & (1) & (2) \\
+ & \textit{Before 16th century} & \textit{16th century onward} \\
+\midrule
+ & \multicolumn{2}{c}{\textit{Asinh difference in titles}} \\
+\midrule
+
+Constant
+& -0.207 & -0.147 \\
+& (0.689) & (0.200) \\
+
+Non-egalitarian inheritance
+& -0.719 & 0.164 \\
+& (0.584) & (0.180) \\
+
+Inheritance unknown
+& -1.730 & 0.175 \\
+& (1.724) & (0.207) \\
+
+Age gap
+& 0.110*** & 0.013 \\
+& (0.031) & (0.011) \\
+
+Father in academia
+& 0.415 & -0.160 \\
+& (0.771) & (0.154) \\
+
+Different institution
+& 0.995 & 0.474** \\
+& (0.643) & (0.184) \\
+
+Century 13
+& -1.595*** & --- \\
+& (0.584) & --- \\
+
+Century 14
+& 1.202 & --- \\
+& (0.744) & --- \\
+
+Century 16
+& --- & 0.032 \\
+& --- & (0.226) \\
+
+Century 17
+& --- & 0.102 \\
+& --- & (0.161) \\
+
+\midrule
+Century controls & Yes & Yes \\
+Clustered SE (family) & Yes & Yes \\
+\midrule
+Observations & 33 & 612 \\
+R$^{2}$ & 0.387 & 0.020 \\
+Adj. R$^{2}$ & 0.215 & 0.008 \\
+\bottomrule
+\end{tabular}
+\end{tablebody}
+
+\vspace{4pt}
+\begin{minipage}{\textwidth}
+\footnotesize
+\textit{Notes:} The dependent variable is the inverse hyperbolic sine (asinh) of the difference in titles between older and younger brothers. Column (1) reports estimates for scholars born before the sixteenth century, while Column (2) reports estimates for scholars born from the sixteenth century onward. All specifications include century controls. The omitted century category is the 15th century in Column (1) and the 18th century in Column (2). Standard errors clustered at the family level are reported in parentheses.
+
+\textit{Significance levels:} *** $p<0.01$, ** $p<0.05$, * $p<0.10$.
+\end{minipage}
+
+\end{table}

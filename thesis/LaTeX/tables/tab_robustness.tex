@@ -1,0 +1,102 @@
+\begin{table}[H]
+\centering
+\caption{Alternative Sample Specifications}
+\label{tab:robustness}
+
+\begin{tablebody}
+\begin{tabular}{l c c}
+\toprule
+ & (1) & (2) \\
+ & \textit{Age gap $\leq 20$} & \textit{Two-son families only} \\
+\midrule
+ & \multicolumn{2}{c}{\textit{Asinh difference in titles}} \\
+\midrule
+
+Constant
+& -0.175
+& -0.151 \\
+& (0.209)
+& (0.223) \\
+
+Non-egalitarian inheritance
+& 0.153
+& 0.047 \\
+& (0.179)
+& (0.202) \\
+
+Inheritance unknown
+& 0.167
+& 0.020 \\
+& (0.211)
+& (0.240) \\
+
+Age gap
+& 0.022
+& 0.014 \\
+& (0.016)
+& (0.013) \\
+
+Father in academia
+& -0.168
+& -0.054 \\
+& (0.152)
+& (0.177) \\
+
+Different institution
+& 0.478*** 
+& 0.493** \\
+& (0.182)
+& (0.202) \\
+
+13th century
+& 0.080
+& -0.330 \\
+& (0.231)
+& (0.264) \\
+
+14th century
+& 1.761*** 
+& 1.687** \\
+& (0.550)
+& (0.850) \\
+
+15th century
+& 0.796** 
+& 1.038*** \\
+& (0.371)
+& (0.387) \\
+
+16th century
+& -0.023
+& 0.235 \\
+& (0.231)
+& (0.265) \\
+
+17th century
+& 0.079
+& 0.192 \\
+& (0.164)
+& (0.187) \\
+
+\midrule
+Century indicators & Yes & Yes \\
+Clustered SE (family) & Yes & Yes \\
+\midrule
+
+Observations & 624 & 467 \\
+R$^{2}$ & 0.033 & 0.036 \\
+Adj. R$^{2}$ & 0.018 & 0.014 \\
+
+\bottomrule
+\end{tabular}
+\end{tablebody}
+
+\vspace{4pt}
+\begin{minipage}{\textwidth}
+\footnotesize
+\textit{Notes:} The dependent variable is the inverse hyperbolic sine (asinh) difference in titles between older and younger brothers. Column (1) restricts the sample to brother pairs with an age gap below or equal to twenty years. Column (2) restricts the sample to families with only two sons. All specifications include century indicator variables, with the eighteenth century used as the omitted reference category. Standard errors are clustered at the family level. Across both robustness specifications, differences in institutional affiliation remain positively associated with larger productivity differences between siblings, while inheritance-system coefficients remain statistically insignificant.
+
+\textit{Significance levels:} *** $p<0.01$, ** $p<0.05$, * $p<0.10$.
+\end{minipage}
+
+\end{table}

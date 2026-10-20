@@ -1,0 +1,45 @@
+\begin{table}[H]
+\centering
+\caption{Extensive and Intensive Margins of Scholarly Productivity}
+\label{tab:extensive_intensive}
+
+\begin{tablebody}
+\begin{tabular}{l c c}
+\toprule
+ & \textbf{Extensive (Logit)} & \textbf{Intensive (OLS)} \\
+ & \textit{Pr(Title $>0$)} & \textit{Asinh titles} \\
+\midrule
+
+Constant
+& 0.051 & 2.892*** \\
+& (0.129) & (0.101) \\
+
+Older sibling
+& 0.238*** & 0.141 \\
+& (0.091) & (0.089) \\
+
+Age gap
+& -0.002 & -0.013 \\
+& (0.012) & (0.009) \\
+
+Father in academia
+& 0.654*** & 0.090 \\
+& (0.176) & (0.112) \\
+
+\midrule
+Clustered SE (family) & Yes & Yes \\
+\midrule
+Observations & 1290 & 772 \\
+R$^{2}$ &  & 0.008 \\
+Adj. R$^{2}$ &  & 0.004 \\
+\bottomrule
+\end{tabular}
+\end{tablebody}
+
+\vspace{4pt}
+\begin{minipage}{\textwidth}
+\footnotesize
+\textit{Notes:} Column (1) reports logit estimates for the probability of having at least one title recorded in VIAF. Column (2) reports OLS estimates conditional on positive titles using the inverse hyperbolic sine transformation of titles. Standard errors are clustered at the family level. \textit{Significance levels:} *** $p<0.01$, ** $p<0.05$, * $p<0.10$.
+\end{minipage}
+
+\end{table}

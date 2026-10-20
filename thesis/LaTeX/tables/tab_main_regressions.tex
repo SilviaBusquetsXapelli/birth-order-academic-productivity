@@ -1,0 +1,82 @@
+\begin{table}[H]
+\centering
+\caption{Determinants of the Birth-Order Productivity Gap}
+\label{tab:main_regressions}
+
+\begin{tablebody}
+\begin{tabular}{l c c c c}
+\toprule
+ & (1) & (2) & (3) & (4)\\
+ & \multicolumn{4}{c}{\textit{Asinh difference in titles}} \\
+\midrule
+
+Constant
+& 0.083
+& 0.023
+& 0.005
+& -0.162 \\
+& (0.109)
+& (0.126)
+& (0.177)
+& (0.197) \\
+
+Age gap 
+& 0.023** & 0.022** & 0.022** & 0.019* \\
+& (0.010) & (0.010) & (0.010) & (0.011) \\
+
+Father in academia 
+&  & -0.184 & -0.186 & -0.163 \\
+&  & (0.149) & (0.148) & (0.150) \\
+
+Different institution 
+&  & 0.440** & 0.440** & 0.485*** \\
+&  & (0.181) & (0.181) & (0.180) \\
+
+Non-egalitarian inheritance 
+&  &  & 0.031 & 0.135 \\
+&  &  & (0.169) & (0.175) \\
+
+Unknown inheritance system
+&  &  & 0.019 & 0.130 \\
+&  &  & (0.198) & (0.205) \\
+
+13th century
+& & & & 0.099 \\
+& & & & (0.223) \\
+
+14th century
+& & & & 1.764*** \\
+& & & & (0.552) \\
+
+15th century
+& & & & 0.863** \\
+& & & & (0.345) \\
+
+16th century
+& & & & 0.025 \\
+& & & & (0.226) \\
+
+17th century
+& & & & 0.099 \\
+& & & & (0.161) \\
+
+\midrule
+Century controls & No & No & No & Yes \\
+Clustered SE (family) & Yes & Yes & Yes & Yes \\
+\midrule
+Observations & 645 & 645 & 645 & 645 \\
+R$^{2}$ & 0.005 & 0.020 & 0.020 & 0.035 \\
+Adj. R$^{2}$ & 0.004 & 0.015 & 0.012 & 0.020 \\
+\bottomrule
+\end{tabular}
+\end{tablebody}
+
+\vspace{4pt}
+\begin{minipage}{\textwidth}
+\footnotesize
+\textit{Notes:} The dependent variable is the inverse hyperbolic sine (asinh) difference in titles between older and younger brothers. Positive values indicate higher productivity for the older sibling. Standard errors clustered at the family level are reported in parentheses. Column (4) includes century indicator variables, with the 18th century used as the omitted reference category.
+
+\textit{Significance levels:} *** $p<0.01$, ** $p<0.05$, * $p<0.10$.
+\end{minipage}
+
+\end{table}
