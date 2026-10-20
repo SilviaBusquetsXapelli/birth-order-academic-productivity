@@ -1,7 +1,7 @@
 # Birth Order and Academic Productivity in Pre-Modern Europe
 
-![Thesis Cover](images/cover.png)
 **Evidence from Brothers in Universities and Learned Academies**
+![Thesis Cover](images/cover.png)
 
 Master's Thesis | 2025–2026
 
