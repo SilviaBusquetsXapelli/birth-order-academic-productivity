@@ -1,0 +1,1260 @@
+\documentclass[aspectratio=169,10pt]{beamer}
+
+% =========================================================
+% DEFENSE VERSION — revised for 15–20 minutes
+% Silvia Busquets Xapellí — October 19, 2026
+% =========================================================
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{ragged2e}
+
+% ---------- Visual style ----------
+\definecolor{FormalNavy}{HTML}{17324D}
+\definecolor{AccentBlue}{HTML}{2F6F9F}
+\definecolor{AccentGold}{HTML}{B98A2E}
+\definecolor{SoftGrey}{HTML}{F4F6F8}
+\definecolor{TextGrey}{HTML}{333333}
+
+\usetheme{Boadilla}
+\usecolortheme[named=FormalNavy]{structure}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}[frame number]
+\setbeamertemplate{itemize item}{\color{FormalNavy}$\blacktriangleright$}
+\setbeamertemplate{itemize subitem}{\color{AccentBlue}$\bullet$}
+\setbeamercolor{title}{fg=FormalNavy}
+\setbeamercolor{frametitle}{fg=FormalNavy}
+\setbeamercolor{normal text}{fg=TextGrey}
+\setbeamercolor{block title}{fg=white,bg=FormalNavy}
+\setbeamercolor{block body}{fg=TextGrey,bg=SoftGrey}
+\setbeamercolor{alerted text}{fg=AccentGold}
+\setbeamerfont{title}{series=\bfseries,size=\Large}
+\setbeamerfont{frametitle}{series=\bfseries,size=\large}
+
+% ---------- Utility ----------
+\newcommand{\bigclaim}[1]{%
+  \begin{beamercolorbox}[wd=\linewidth,sep=0.7em,rounded=true]{block title}%
+  \color{white}\large\bfseries #1
+  \end{beamercolorbox}}
+
+\newcommand{\metric}[2]{%
+  \begin{minipage}{0.30\linewidth}\centering
+  {\Large\bfseries\color{FormalNavy} #1}\\[-0.15em]
+  {\scriptsize #2}
+  \end{minipage}}
+
+\newcommand{\safeimage}[2]{%
+  \IfFileExists{#1}{\includegraphics[#2]{#1}}{%
+    \fbox{\begin{minipage}[c][0.35\textheight][c]{0.78\linewidth}\centering
+    Missing figure
+    \end{minipage}}}}
+
+\title[Birth Order and Academic Productivity]{Birth Order and Academic Productivity in Pre-Modern Europe}
+\subtitle{Evidence from Brothers in Universities and Learned Academies}
+\author{Silvia Busquets Xapellí}
+\institute{Católica Lisbon School of Business \& Economics \;|\; UCLouvain\\
+Supervisors: Prof. Hugo Reis and Prof. David de la Croix}
+\date{Dissertation Defense \;|\; 19 October 2026}
+
+\begin{document}
+
+% =========================================================
+% MAIN DECK
+% =========================================================
+
+% ---------- 1 ----------
+\begin{frame}[plain]
+  \titlepage
+  \vspace{-1.0em}
+  \begin{center}
+  \footnotesize Remote dissertation defense
+  \end{center}
+\end{frame}
+
+% ---------- 2 ----------
+\begin{frame}{Research question and contribution}
+\bigclaim{Did older brothers among pre-modern European scholars become more productive than their younger brothers?}
+\vspace{0.6em}
+
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.48\textwidth}
+\textbf{Why this is interesting}
+\begin{itemize}
+    \item Modern evidence often finds firstborn advantages in education and long-run outcomes.
+    \item Historical evidence is more mixed and institutional context differs sharply from today.
+    \item Scholarly families offer a setting in which long-run intellectual output can be observed.
+\end{itemize}
+\end{column}
+
+\begin{column}{0.48\textwidth}
+\textbf{What this dissertation adds}
+\begin{itemize}
+    \item A new sample of \textbf{645 rankable brother pairs}.
+    \item Direct \textbf{within-family older -- younger comparisons}.
+    \item A distinction between \textbf{entry into publication} and productivity conditional on publishing.
+    \item Links to \textbf{academic institutions} and \textbf{regional inheritance regimes}.
+\end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
+
+% ---------- 3 ----------
+\begin{frame}{Literature and hypotheses}
+\small
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.48\textwidth}
+\begin{block}{1. Birth order and human capital}
+Modern within-family studies generally find an earlier-born advantage.\\
+{\scriptsize Devereux et al. (2005); Behrman \& Taubman (1986); Kantarevic \& Mechoulan (2006)}
+\end{block}
+
+\begin{block}{2. Mechanisms}
+Resource dilution, differential parental investment, and sibling competition.\\
+{\scriptsize Becker \& Tomes (1976); Blake (1981); Price (2008); Hotz \& Pantano (2015)}
+\end{block}
+\end{column}
+
+\begin{column}{0.48\textwidth}
+\begin{block}{3. Historical and elite settings}
+Historical effects are smaller or more context-dependent; elite formation and institutions matter.\\
+{\scriptsize Clark \& Cummins (2024); Cools et al. (2024); De la Croix \& Goñi (2024)}
+\end{block}
+
+\begin{block}{4. Family institutions}
+Inheritance systems can alter the allocation of resources within families.\\
+{\scriptsize Todd (1990); Gay et al. (2024); Gobbi et al. (2026)}
+\end{block}
+\end{column}
+\end{columns}
+
+\vspace{0.25em}
+\textbf{Ex ante hypothesis:} older-brother advantages should be larger where family resources are less equally distributed; institutional environments may also amplify sibling divergence.
+\end{frame}
+
+% ---------- 4 ----------
+\begin{frame}{Data and sample construction}
+
+\begin{columns}[T,onlytextwidth]
+
+% ====================================================
+% LEFT COLUMN — SOURCES
+% ====================================================
+\begin{column}{0.58\textwidth}
+
+\textbf{Sources}
+
+\vspace{0.15em}
+
+\begin{itemize}
+    \setlength{\itemsep}{0.30em}
+
+    \item \textbf{RETE (Repertorium Eruditorum Totius Europae)}\\[-0.10em]
+    {\small
+    Scholars in European universities and learned academies;
+    birth information and academic careers.}
+
+    \item \textbf{Biographical repertories}\\[-0.10em]
+    {\small
+    Historical catalogues of professors and academic elites;
+    additional family links (fathers, sons and brothers).}
+
+    \item \textbf{VIAF (Virtual International Authority File)}\\[-0.10em]
+    {\small
+    Bibliographic productivity: titles, publishers,
+    publication countries and coauthors.}
+
+    \item \textbf{Wikipedia / Wikidata}\\[-0.10em]
+    {\small
+    Scholarly visibility (page length and languages) and
+    academic affiliations / occupations.}
+
+    \item \textbf{Todd (1990) + Gay et al. (2024)}\\[-0.10em]
+    {\small
+    Regional inheritance systems.}
+
+\end{itemize}
+
+\end{column}
+
+% ====================================================
+% RIGHT COLUMN — SAMPLE CONSTRUCTION
+% ====================================================
+\begin{column}{0.38\textwidth}
+
+\textbf{Sample construction}
+
+\vspace{0.10em}
+
+\begin{center}
+
+\begin{tabular}{ccc}
+{\large\bfseries\color{FormalNavy}913}
+&
+{\large\bfseries\color{FormalNavy}645}
+&
+{\large\bfseries\color{FormalNavy}268}
+\\[-0.10em]
+
+{\tiny identified brother pairs}
+&
+{\tiny rankable pairs}
+&
+{\tiny unrankable pairs}
+
+\end{tabular}
+
+\end{center}
+
+\vspace{0.15em}
+
+\begin{block}{Rankable = usable for birth-order analysis}
+\scriptsize
+Both birth years are observed and different, so older and younger
+brothers can be assigned without arbitrary choices.
+\end{block}
+
+\vspace{-0.25em}
+
+\begin{alertblock}{Selection}
+\scriptsize
+Rankable pairs are more visible in the historical record than
+unrankable pairs. Results therefore describe
+\textbf{observed scholarly elites}, not all families.
+\end{alertblock}
+
+\end{column}
+
+\end{columns}
+
+\end{frame}
+
+% ---------- 5 ----------
+\begin{frame}{Outcome and transformation}
+
+\begin{columns}[T,onlytextwidth]
+
+% ====================================================
+% LEFT COLUMN — OUTCOME + DISTRIBUTION
+% ====================================================
+\begin{column}{0.54\textwidth}
+
+\begin{block}{Main outcome}
+\small
+\begin{itemize}
+    \setlength{\itemsep}{0.20em}
+
+    \item Number of titles attributed to each scholar in VIAF.
+
+    \item Alternative outcomes capture visibility, publishers,
+    coauthors, languages, and institutional involvement.
+\end{itemize}
+\end{block}
+
+\vspace{0.10em}
+
+\centering
+
+\includegraphics[
+    width=0.90\linewidth,
+    height=0.34\textheight,
+    keepaspectratio
+]{figures/figure2_distribution_clean3.png}
+
+\vspace{0.05em}
+
+{\footnotesize
+\textbf{\color{FormalNavy}Why transform?}
+Titles are strongly right-skewed, with many observations close to zero.
+}
+
+\end{column}
+
+% ====================================================
+% RIGHT COLUMN — TRANSFORMATION
+% ====================================================
+\begin{column}{0.42\textwidth}
+
+\begin{center}
+{\footnotesize\textbf{Inverse hyperbolic sine transformation}}
+
+\vspace{0.08em}
+
+\[
+\operatorname{asinh}(x)
+=
+\ln\!\left(x+\sqrt{x^2+1}\right)
+\]
+\end{center}
+
+\vspace{0.05em}
+
+\begin{block}{Key property}
+\footnotesize
+Defined at zero, while behaving approximately like a logarithm
+for large positive values.
+\end{block}
+
+\vspace{0.10em}
+
+\begin{alertblock}{Interpretation}
+\footnotesize
+Asinh coefficients are \textbf{not constant percentage effects near zero}.
+Percentage interpretations depend on the chosen baseline.
+\end{alertblock}
+
+\end{column}
+
+\end{columns}
+
+\end{frame}
+
+% ---------- 6 ----------
+\begin{frame}{Descriptive within-family evidence}
+
+\begin{columns}[T,onlytextwidth]
+
+% ====================================================
+% LEFT COLUMN — PAIRED COMPARISONS
+% ====================================================
+\begin{column}{0.57\textwidth}
+
+\begin{block}{Paired comparison}
+\footnotesize
+
+For each brother pair:
+\[
+d_i = Outcome^{Older}_i - Outcome^{Younger}_i
+\]
+
+\[
+H_0: E[d_i]=0
+\]
+
+\centering
+\(E[d_i]>0\) $\Rightarrow$ older brothers have higher values on average.
+\end{block}
+
+\vspace{0.15em}
+
+\centering
+
+{\scriptsize
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.13}
+
+\begin{tabular}{lrr}
+\toprule
+\textbf{Measure} & \textbf{Mean diff.} & \textbf{p-val.}\\
+\midrule
+Titles & 2.096 & .0076\\
+Titles asinh & 0.245 & .0007\\
+Has title & 0.056 & .0089\\
+Wiki languages & 0.659 & .0215\\
+Publishers & 0.667 & .0043\\
+Coauthors & 1.056 & .0001\\
+\bottomrule
+\end{tabular}
+}
+
+\vspace{0.20em}
+
+\begin{block}{Takeaway}
+\footnotesize
+Average differences generally favor older brothers,
+but the advantage is \textbf{modest and far from universal}.
+\end{block}
+
+\end{column}
+
+% ====================================================
+% RIGHT COLUMN — HETEROGENEITY
+% ====================================================
+\begin{column}{0.39\textwidth}
+
+\begin{center}
+\textbf{Who is more productive?}
+
+\vspace{0.20em}
+
+\includegraphics[
+    width=0.92\linewidth,
+    height=0.36\textheight,
+    keepaspectratio
+]{figures/figure1_productivity_comparison.png}
+\end{center}
+
+\vspace{0.10em}
+
+\begin{block}{Heterogeneity across families}
+\footnotesize
+\begin{tabular}{@{}lr@{}}
+Older brother & \textbf{41.6\%}\\
+Younger brother & \textbf{31.3\%}\\
+Equal productivity & \textbf{27.1\%}
+\end{tabular}
+\end{block}
+
+\vspace{0.15em}
+
+{\footnotesize
+The average advantage favors older brothers, but nearly
+\textbf{6 in 10 pairs} do not show an older-brother advantage.
+}
+
+\end{column}
+
+\end{columns}
+
+\end{frame}
+
+% ---------- 7 ----------
+\begin{frame}{Where does the difference come from? Extensive vs.\ intensive margin}
+
+\begin{columns}[T,onlytextwidth]
+
+% ====================================================
+% LEFT — EXTENSIVE
+% ====================================================
+\begin{column}{0.48\textwidth}
+
+\textbf{Extensive margin: any recorded title}
+
+\vspace{0.15em}
+
+\[
+Pr(Title_i>0)
+=
+\Lambda\!\left(
+\alpha
++\beta Older_i
++\gamma AgeGap_i
+
+
++\delta FatherAcademia_i
+\right))
+\]
+
+\begin{block}{Logit result}
+\footnotesize
+Older-sibling coefficient: \textbf{0.238***}\\
+Odds ratio: \(e^{0.238}=\textbf{1.27}\)
+
+\vspace{0.20em}
+
+\textbf{Interpretation:}
+older brothers have about \textbf{27\% higher odds}
+of having at least one recorded title,
+conditional on included controls.
+\end{block}
+
+{\scriptsize
+\(N=1{,}290\) scholar observations
+\(=645\) pairs \(\times 2\) brothers.\\
+All scholars remain in the sample because the outcome is
+whether \(Title>0\).
+}
+
+\end{column}
+
+% ====================================================
+% RIGHT — INTENSIVE
+% ====================================================
+\begin{column}{0.48\textwidth}
+
+\textbf{Intensive margin: output among publishers}
+
+\vspace{0.15em}
+
+\[
+asinh(Titles_i)
+=
+\alpha
++\beta Older_i
++\gamma AgeGap_i
+
+
++\delta FatherAcademia_i
++\varepsilon_i
+\]
+
+\begin{block}{OLS on positive-title sample}
+\footnotesize
+Older-sibling coefficient: \textbf{0.141}\\
+Not statistically significant.
+\end{block}
+
+{\scriptsize
+\(N=772\) scholars with positive title counts.\\
+Scholars with zero titles are excluded because this specification
+measures productivity \textbf{conditional on publishing}.
+}
+
+\vspace{0.35em}
+
+\begin{alertblock}{Interpretation}
+\footnotesize
+The strongest birth-order pattern concerns
+\textbf{participation in recorded scholarly production},
+not output once a scholar is already publishing.
+\end{alertblock}
+
+\end{column}
+
+\end{columns}
+
+\end{frame}
+
+% ---------- 8 ----------
+\begin{frame}{Institutional environment and inheritance systems}
+
+\setlength{\columnsep}{0.6em}
+
+\begin{columns}[T,onlytextwidth]
+
+% ====================================================
+% LEFT — LARGE MAP + LEGENDS
+% ====================================================
+\begin{column}{0.70\textwidth}
+
+\centering
+
+\includegraphics[
+    width=\linewidth,
+    height=0.68\textheight,
+    keepaspectratio
+]{figures/figure3_map_tight.png}
+
+\vspace{-0.10em}
+
+\begin{columns}[T,onlytextwidth]
+
+    \begin{column}{0.48\textwidth}
+    \centering
+    \includegraphics[
+        width=0.95\linewidth,
+        height=0.105\textheight,
+        keepaspectratio
+    ]{figures/figure3_legend_scholars_final.png}
+    \end{column}
+
+    \begin{column}{0.48\textwidth}
+    \centering
+    \includegraphics[
+        width=0.95\linewidth,
+        height=0.105\textheight,
+        keepaspectratio
+    ]{figures/figure3_legend_inheritance_final.png}
+    \end{column}
+
+\end{columns}
+
+\end{column}
+
+% ====================================================
+% RIGHT — DEFINITIONS
+% ====================================================
+\begin{column}{0.28\textwidth}
+
+\textbf{Inheritance}
+
+\begin{itemize}
+    \setlength{\itemsep}{0.10em}
+    \setlength{\leftmargini}{1.15em}
+
+    \item Assigned by birthplace region at NUTS3 level.
+    \item Egalitarian: \textbf{30.1\%}
+    \item Non-egalitarian: \textbf{46.5\%}
+    \item Unknown: \textbf{23.4\%}
+\end{itemize}
+
+\vspace{0.08em}
+
+\textbf{Institutions}
+
+\begin{itemize}
+    \setlength{\itemsep}{0.10em}
+    \setlength{\leftmargini}{1.15em}
+
+    \item Indicator \(=1\) if brothers are associated with
+    different academic institutions.
+\end{itemize}
+
+\vspace{0.08em}
+
+\begin{alertblock}{Important}
+\scriptsize
+
+``Older observed scholar'' is not necessarily the biological firstborn.
+
+\vspace{0.08em}
+
+The inheritance variable is a \textbf{regional proxy},
+not a household rule.
+\end{alertblock}
+
+\end{column}
+
+\end{columns}
+
+\end{frame}
+
+% ---------- 9 ----------
+\begin{frame}{Empirical specification}
+\small
+\[
+\Delta P_i =
+\operatorname{asinh}(Titles^{Older}_i)-
+\operatorname{asinh}(Titles^{Younger}_i)
+\]
+\vspace{-0.3em}
+\[
+\begin{aligned}
+\Delta P_i ={}& \beta_0+\beta_1 AgeGap_i+\beta_2 FatherAcademia_i
++\beta_3 DifferentInstitution_i\\
+&+\beta_4 NonEgalitarian_i+\beta_5 Unknown_i
++\sum_{c=13}^{17}\gamma_c Century_{ic}+\varepsilon_i
+\end{aligned}
+\]
+\vspace{-0.5em}
+\begin{itemize}\setlength\itemsep{0.25em}
+  \item Positive \(\Delta P_i\): higher recorded productivity for the older brother.
+  \item OLS with standard errors clustered at family level; 18th century omitted.
+  \item Pair differencing removes shared family-level levels, but does not randomize birth order, survival, observation, career choice or institution.
+\end{itemize}
+\vspace{-0.2em}
+\begin{alertblock}{Identification claim}
+I interpret these as \textbf{within-family associations}, not fully causal estimates.
+\end{alertblock}
+\end{frame}
+
+% ---------- 10 ----------
+\begin{frame}{Preferred regression: institutions are the most robust correlate}
+\begin{table}
+\centering
+\small
+\begin{tabular}{lccc}
+\toprule
+Variable & Coefficient & S.E. & Significance\\
+\midrule
+Age gap & 0.019 & 0.011 & *\\
+Father in academia & -0.163 & 0.150 & n.s.\\
+Different institution & \textbf{0.485} & 0.180 & \textbf{***}\\
+Non-egalitarian inheritance & 0.135 & 0.175 & n.s.\\
+Unknown inheritance & 0.130 & 0.205 & n.s.\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\vspace{0.35em}
+\begin{block}{What I would emphasize}
+The coefficient on \textbf{different institution} is positive and statistically robust: brothers associated with different institutions display larger older -- younger productivity gaps.
+\end{block}
+
+\begin{alertblock}{What I would not claim}
+The coefficient does not establish that moving brothers to different institutions \emph{causes} a 63\% increase in productivity. It is an association in transformed gap units.
+\end{alertblock}
+
+{\scriptsize Preferred model: \(N=645\), \(R^2=0.035\), century indicators included, family-clustered SE.}
+\end{frame}
+
+% ---------- 11 ----------
+\begin{frame}{Historical heterogeneity}
+
+\small
+
+% ====================================================
+% TOP — FIGURE + PERIOD COMPARISON
+% ====================================================
+\begin{columns}[T,onlytextwidth]
+
+% ---------------- LEFT: FIGURE ----------------
+\begin{column}{0.59\textwidth}
+
+\centering
+
+\safeimage{figures/historical_heterogeneity_clear.png}{
+    width=\linewidth,
+    height=0.50\textheight,
+    keepaspectratio
+}
+
+\end{column}
+
+% ---------------- RIGHT: RESULTS ----------------
+\begin{column}{0.37\textwidth}
+
+\begin{block}{Period comparison}
+\scriptsize
+
+\textbf{Before the 16th century}
+\begin{itemize}
+    \setlength{\itemsep}{0.05em}
+    \item \textbf{33 pairs}
+    \item Age gap: \textbf{0.110***}
+    \item Different institution: 0.995, imprecise
+\end{itemize}
+
+\vspace{0.15em}
+
+\textbf{16th century onward}
+\begin{itemize}
+    \setlength{\itemsep}{0.05em}
+    \item \textbf{612 pairs}
+    \item Age gap: 0.013, n.s.
+    \item Different institution: \textbf{0.474**}
+\end{itemize}
+
+\end{block}
+
+\end{column}
+
+\end{columns}
+
+\vspace{0.20em}
+
+% ====================================================
+% BOTTOM — MOTIVATION + CAUTION
+% ====================================================
+\begin{columns}[T,onlytextwidth]
+
+% ---------------- WHY SPLIT ----------------
+\begin{column}{0.59\textwidth}
+
+\begin{alertblock}{Why split at the 16th century?}
+\scriptsize
+Inheritance-system variation is very limited in the earliest centuries:
+\textbf{non-egalitarian regimes are almost absent in the 13th and 14th centuries}.
+
+The later period therefore provides substantially more variation
+in inheritance regimes.
+\end{alertblock}
+
+\end{column}
+
+% ---------------- CAUTION ----------------
+\begin{column}{0.37\textwidth}
+
+\begin{alertblock}{Caution}
+\scriptsize
+The early-period estimates are based on only
+\textbf{33 brother pairs}.
+
+They are informative, but substantially less precise and should
+therefore be interpreted cautiously.
+\end{alertblock}
+
+\end{column}
+
+\end{columns}
+
+\end{frame}
+
+% ---------- 12 ----------
+\begin{frame}{Robustness and main threats to interpretation}
+
+\small
+
+\begin{columns}[T,onlytextwidth]
+
+% ====================================================
+% LEFT — ROBUSTNESS
+% ====================================================
+\begin{column}{0.48\textwidth}
+
+\textbf{Robustness: what does each test check?}
+
+\vspace{0.10em}
+
+\begin{itemize}
+    \setlength{\itemsep}{0.22em}
+
+    \item \textbf{Age gap $\leq 20$ years}\\[-0.08em]
+    {\scriptsize Excludes unusually large sibling age gaps.}
+
+    \item \textbf{Two observed sons}\\[-0.08em]
+    {\scriptsize Avoids multiple overlapping brother pairs in larger families.}
+
+    \item \textbf{Alternative outcomes}\\[-0.08em]
+    {\scriptsize Checks that results are not specific to VIAF titles.}
+
+    \item \textbf{Alternative functional forms}\\[-0.08em]
+    {\scriptsize Tests dependence on the asinh transformation.}
+
+    \item \textbf{Country controls}\\[-0.08em]
+    {\scriptsize Checks whether geographic composition drives the result.}
+
+\end{itemize}
+
+\vspace{0.10em}
+
+\begin{block}{Stable pattern}
+\scriptsize
+Institutional divergence coefficients remain positive;
+inheritance coefficients remain weak.
+\end{block}
+
+\end{column}
+
+% ====================================================
+% RIGHT — LIMITATIONS
+% ====================================================
+\begin{column}{0.48\textwidth}
+
+\textbf{Main threats / limitations}
+
+\vspace{0.10em}
+
+\begin{itemize}
+    \setlength{\itemsep}{0.20em}
+
+    \item \textbf{Historical selection}\\[-0.08em]
+    {\scriptsize Results apply to observed scholarly elites.}
+
+    \item \textbf{Rankability selection}\\[-0.08em]
+    {\scriptsize Better-documented scholars are overrepresented.}
+
+    \item \textbf{VIAF measurement}\\[-0.08em]
+    {\scriptsize Titles also reflect preservation, editions and cataloguing.}
+
+   \item \textbf{Endogenous institutions}\\[-0.08em]
+    {\scriptsize Institution choice may reflect ability or opportunities.}
+
+    \item \textbf{Inheritance proxy}\\[-0.08em]
+    {\scriptsize Regional regimes may differ from household practice.}
+
+\end{itemize}
+
+\end{column}
+
+\end{columns}
+
+\end{frame}
+
+% ---------- 13 ----------
+\begin{frame}{Conclusion}
+\begin{enumerate}
+  \item There is a \textbf{modest older-brother advantage} in recorded scholarly productivity.
+  \item The clearest birth-order pattern is on the \textbf{extensive margin}: older brothers have higher odds of having at least one recorded title.
+  \item Conditional on publishing, the older-sibling coefficient is small and statistically insignificant.
+  \item \textbf{Institutional divergence} is more consistently associated with within-family productivity gaps than regional inheritance regimes.
+  \item The relationship is historically heterogeneous: age gaps matter more in the very small early sample; institutional divergence is more robust from the 16th century onward.
+\end{enumerate}
+
+\vspace{0.5em}
+\bigclaim{The evidence points less to a universal primogeniture effect than to birth-order differences shaped by access to scholarly activity and institutional context.}
+\end{frame}
+
+% ---------- 14 ----------
+\begin{frame}[plain]
+\begin{center}
+\vspace{2.0em}
+{\Huge\color{FormalNavy}\textbf{Thank you}}\\[1.2em]
+{\Large Questions and discussion}\\[1.8em]
+{\small Silvia Busquets Xapellí}
+\end{center}
+\end{frame}
+
+% =========================================================
+% BACKUP SLIDES
+% =========================================================
+\appendix
+
+% ---------- B1 ----------
+\begin{frame}{Backup: full preferred regression}
+\centering
+\scriptsize
+\begin{tabular}{lcc}
+\toprule
+Variable & Coefficient & S.E.\\
+\midrule
+Constant & -0.162 & 0.197\\
+Age gap & 0.019* & 0.011\\
+Father in academia & -0.163 & 0.150\\
+Different institution & 0.485*** & 0.180\\
+Non-egalitarian inheritance & 0.135 & 0.175\\
+Unknown inheritance & 0.130 & 0.205\\
+13th century & 0.099 & 0.223\\
+14th century & 1.764*** & 0.552\\
+15th century & 0.863** & 0.345\\
+16th century & 0.025 & 0.226\\
+17th century & 0.099 & 0.161\\
+\midrule
+Observations & \multicolumn{2}{c}{645}\\
+\(R^2\) & \multicolumn{2}{c}{0.035}\\
+Adj. \(R^2\) & \multicolumn{2}{c}{0.020}\\
+\bottomrule
+\end{tabular}
+
+\vspace{0.4em}
+{\scriptsize Dependent variable: \(\operatorname{asinh}(Titles_O)-\operatorname{asinh}(Titles_Y)\). 18th century omitted. Family-clustered SE.}
+\end{frame}
+
+% ---------- B2 ----------
+\begin{frame}{Backup: sample selection}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.52\textwidth}
+\centering
+\small
+\begin{tabular}{lcc}
+\toprule
+ & Rankable & Unrankable\\
+\midrule
+Brother pairs & 645 & 268\\
+Mean titles & 10.84 & 1.87\\
+Individuals with no titles & 40.2\% & 81.6\%\\
+Pairs with no titles & 25.4\% & 69.3\%\\
+Father in academia & 38.8\% & 41.0\%\\
+\bottomrule
+\end{tabular}
+\end{column}
+
+\begin{column}{0.44\textwidth}
+\begin{itemize}
+  \item Birth order is observable disproportionately for better documented scholars.
+  \item This can affect external validity.
+  \item It is not solved by the within-family comparison.
+\end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
+
+% ---------- Backup: concrete heterogeneity examples ----------
+\begin{frame}{Backup: concrete examples from the data}
+
+\begin{columns}[T,onlytextwidth]
+
+% ====================================================
+% LEFT — SMALL GAP
+% ====================================================
+\begin{column}{0.47\textwidth}
+
+\begin{block}{Bernoulli brothers: similar productivity}
+\small
+
+\textbf{Jacob Bernoulli}\\
+Older brother: \textbf{63 VIAF titles}
+
+\vspace{0.20em}
+
+\textbf{Johann Bernoulli}\\
+Younger brother: \textbf{59 VIAF titles}
+
+\vspace{0.25em}
+
+{\footnotesize
+A case where birth order is associated with only a very small
+within-family productivity difference.
+}
+
+\end{block}
+
+\end{column}
+
+% ====================================================
+% RIGHT — LARGE GAP
+% ====================================================
+\begin{column}{0.47\textwidth}
+
+\begin{alertblock}{Thomasius brothers: large productivity gap}
+\small
+
+\textbf{Christian Thomasius}\\
+Older brother: \textbf{71 VIAF titles}
+
+\vspace{0.20em}
+
+\textbf{Gottfried Thomasius}\\
+Younger brother: \textbf{5 VIAF titles}
+
+\vspace{0.25em}
+
+{\footnotesize
+One of the largest within-family productivity gaps
+observed in the dataset.
+}
+
+\end{alertblock}
+
+\end{column}
+
+\end{columns}
+
+\vspace{0.30em}
+
+\begin{block}{Schott brothers: low visibility, but observable in structured data}
+\footnotesize
+
+\textbf{August Ludwig Schott (1751--1787): 4 titles}
+\qquad
+\textbf{Andreas Heinrich Schott (1758--1831): 6 titles}
+
+\vspace{0.12em}
+
+Neither brother has a significant presence in accessible historical sources.
+The pair is identified through \textbf{prosopographical data}, illustrating how structured
+historical datasets recover scholars who would otherwise be difficult to observe.
+
+\end{block}
+
+\vspace{0.15em}
+
+{\footnotesize
+\textbf{\color{FormalNavy}Takeaway:}
+the dataset contains both highly visible scholarly families and much less visible pairs,
+with very different within-family productivity patterns.
+}
+
+\end{frame}
+
+
+
+
+% ------------------------------------------------------------
+% Backup: Scholarly Productivity Across Samples
+% ------------------------------------------------------------
+
+\begin{frame}{Backup: Scholarly Productivity Across Samples}
+
+\small
+
+\begin{table}
+\centering
+\begin{tabular}{lcc}
+\hline
+\textbf{Sample} &
+\textbf{Mean Titles} &
+\textbf{Observations} \\
+\hline
+All scholars in the dataset       & 3.81  & 91,931 \\
+Scholars with identified siblings & 8.29  & 1,552 \\
+Older brothers (rankable)         & 11.89 & 645 \\
+Younger brothers (rankable)       & 9.79  & 645 \\
+\hline
+\end{tabular}
+\end{table}
+
+\vspace{0.35cm}
+
+\begin{block}{Key Takeaways}
+\begin{itemize}
+    \item Scholars with identified siblings have higher
+    recorded productivity than the overall sample.
+    \item Older brothers have, on average, 2.10 more
+    recorded titles than younger brothers.
+    \item The median number of titles in the full
+    dataset is zero.
+\end{itemize}
+\end{block}
+
+\vspace{0.15cm}
+
+{\scriptsize
+\textit{Notes:} The full historical academic dataset
+includes 91,931 scholars. Among the 1,556 unique
+scholars with identified siblings, title data are
+available for 1,552 (four have missing values).
+Zero-title observations are included in the means.
+Older and younger brother means are based on
+645 rankable pairs rather than unique individuals.
+}
+
+\end{frame}
+
+
+% ---------- B3 ----------
+\begin{frame}{Backup: asinh interpretation}
+
+\small
+
+\begin{block}{Transformations}
+\[
+\operatorname{asinh}(x)
+=
+\ln\!\left(x+\sqrt{x^2+1}\right)
+\]
+
+\[
+\sinh(z)
+=
+\frac{e^z-e^{-z}}{2}
+\]
+\end{block}
+
+\vspace{0.15em}
+
+\textbf{Percentage illustration}
+
+\[
+\%\Delta y =
+100\left[
+\frac{
+\sinh\!\left(
+\operatorname{asinh}(y_0)+\beta
+\right)
+}{
+y_0
+}
+-1
+\right]
+\]
+
+\begin{itemize}
+    \setlength{\itemsep}{0.25em}
+
+    \item This is a \textbf{baseline-dependent illustration},
+    not a constant semi-elasticity.
+
+    \item Using \(y_0=9.79\):
+
+    \begin{itemize}
+        \item \(\beta=0.245
+        \Rightarrow
+        \%\Delta y \approx \textbf{27.9\%}\)
+
+        \item \(\beta=0.485
+        \Rightarrow
+        \%\Delta y \approx \textbf{62.7\%}\)
+    \end{itemize}
+
+\end{itemize}
+
+\begin{alertblock}{Interpretation}
+\footnotesize
+The percentage changes depend on the chosen baseline \(y_0\).
+For this reason, the main results should be reported first in
+\textbf{asinh units}, with percentage conversions used only as illustrations.
+\end{alertblock}
+
+\end{frame}
+
+% ---------- B4 ----------
+\begin{frame}{Backup: extensive and intensive margins}
+
+\centering
+\small
+
+\begin{tabular}{lcc}
+\toprule
+ & Extensive (Logit) & Intensive (OLS)\\
+ & \(Pr(Title>0)\) & Asinh titles\\
+\midrule
+Constant & 0.051 & 2.892***\\
+Older sibling & \textbf{0.238***} & 0.141\\
+Age gap & -0.002 & -0.013\\
+Father in academia & 0.654*** & 0.090\\
+\midrule
+Observations & 1290 & 772\\
+Family-clustered SE & Yes & Yes\\
+\bottomrule
+\end{tabular}
+
+\vspace{0.6em}
+
+\begin{block}{Logit interpretation}
+\footnotesize
+
+\[
+OR=e^{\beta}=e^{0.238}\approx1.27
+\]
+
+\[
+(1.27-1)\times100\approx\textbf{27\% higher odds}
+\]
+
+So older brothers have about \textbf{27\% higher odds}
+of having at least one recorded title, conditional on the included controls.
+
+\end{block}
+
+\begin{alertblock}{Important}
+\footnotesize
+This is an increase in \textbf{odds}, not a 27\% increase in probability.
+\end{alertblock}
+
+\end{frame}
+
+% ---------- B5 ----------
+\begin{frame}{Backup: period-specific regression}
+\centering
+\small
+\begin{tabular}{lcc}
+\toprule
+ & Before 16th c. & 16th c. onward\\
+\midrule
+Observations & 33 & 612\\
+Age gap & 0.110*** & 0.013\\
+Father in academia & 0.415 & -0.160\\
+Different institution & 0.995 & 0.474**\\
+Non-egalitarian inheritance & -0.719 & 0.164\\
+Unknown inheritance & -1.730 & 0.175\\
+\(R^2\) & 0.387 & 0.020\\
+Adj. \(R^2\) & 0.215 & 0.008\\
+\bottomrule
+\end{tabular}
+\end{frame}
+
+% ---------- B6 ----------
+\begin{frame}{Backup: robustness across functional forms}
+\small
+\begin{tabularx}{\linewidth}{>{\bfseries}p{0.23\linewidth}X X}
+\toprule
+Specification & Different institution & Main caution\\
+\midrule
+Asinh gap & 0.485*** & Baseline-dependent percentage translation\\
+Log gap, \(\epsilon=0.1\) & 0.577** & Depends on zero adjustment\\
+Raw title gap & 5.160** & More sensitive to outliers\\
+Age gap \(\leq20\) & 0.478*** & \(N=624\)\\
+Two-son families & 0.493** & \(N=467\)\\
+Country controls & 0.388* & Many countries have small cell sizes\\
+\bottomrule
+\end{tabularx}
+
+\vspace{0.6em}
+\begin{block}{Takeaway}
+The sign and broad qualitative pattern for institutional divergence survive several alternative specifications, although precision and magnitude vary.
+\end{block}
+\end{frame}
+
+% ---------- B7 ----------
+\begin{frame}{Backup: literature map}
+\begin{itemize}\setlength\itemsep{0.35em}
+\item \textbf{Modern birth order:} Devereux et al. (2005), Behrman \& Taubman (1986), Kantarevic \& Mechoulan (2006). Earlier-born children tend to have better schooling outcomes in modern within-family data.
+\item \textbf{Mechanisms:} Becker \& Tomes (1976), Blake (1981), Price (2008), Hotz \& Pantano (2015). Finite resources, parental time, strategic responses and sibling competition.
+\item \textbf{Historical evidence:} Clark \& Cummins (2024), Cools et al. (2024), Nuevo-Chiquero et al. (2022). Historical birth-order effects are mixed and context-dependent.
+\item \textbf{Academic elites:} De la Croix \& Goñi (2024), De la Croix et al. (2024). Family background, institutions and networks matter in historical academia.
+\item \textbf{Inheritance institutions:} Todd (1990), Gay et al. (2024), Gobbi et al. (2026). Regional family systems vary spatially and can affect household incentives.
+\end{itemize}
+\end{frame}
+
+% ---------- B8 ----------
+\begin{frame}{Backup: likely econometrics questions}
+\begin{itemize}\setlength\itemsep{0.35em}
+\item \textbf{Causal?} Within-family differencing removes shared family levels, but not selection, sibling-specific shocks, endogenous institution choice or measurement error.
+\item \textbf{Why cluster by family?} Larger families generate several pair observations; family clustering allows residual correlation within reconstructed families.
+\item \textbf{Why not count models?} The estimate is an older--younger within-pair gap including zeros; asinh gives a symmetric transformed difference. Count models are a useful extension, not the same estimand.
+\item \textbf{Why not pair fixed effects?} The regression is already at pair level; the dependent variable is the within-pair difference, so shared pair-level levels cancel.
+\item \textbf{Low $R^2$?} The goal is not prediction; historical productivity is highly heterogeneous. The question is whether selected covariates are systematically associated with the gap.
+\end{itemize}
+\end{frame}
+
+% ---------- B9 ----------
+\begin{frame}{Backup: questions about measurement and selection}
+\begin{itemize}\setlength\itemsep{0.35em}
+\item \textbf{Does VIAF measure true productivity?} No. It is a bibliographic proxy for recorded output and also reflects editions, translations, preservation and cataloguing.
+\item \textbf{Why compare scholars only?} The research question concerns observed academic elites; it does not estimate birth-order effects for the general population.
+\item \textbf{Is older the same as firstborn?} No. I identify relative age among observed scholarly brothers, not complete biological birth rank.
+\item \textbf{Could different institutions reflect ability?} Yes. Institution choice is endogenous; I interpret it as an association with divergent trajectories, not a causal institution effect.
+\item \textbf{Could rankability bias results?} Yes. Rankable pairs have richer records, so the external validity is selected and should be stated explicitly.
+\end{itemize}
+\end{frame}
+
+
+\end{document}
