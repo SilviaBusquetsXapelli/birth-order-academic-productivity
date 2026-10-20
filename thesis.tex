@@ -1,0 +1,66 @@
+% !TEX program = xelatex
+\documentclass[12pt,a4paper]{report}
+
+% =========================
+% PREAMBLE
+% =========================
+\input{preamble}
+
+\begin{document}
+
+% =========================
+% COVER PAGE (OFFICIAL PDF)
+% =========================
+%\includepdf[pages=1]{cover_double_degree.pdf}
+\includepdf[pages=1]{cover_page_UCP.pdf}
+
+\clearpage
+\setcounter{page}{1}
+
+% =========================
+% ABSTRACTS
+% =========================
+\pagenumbering{roman}
+\input{chapters/abstract}
+\clearpage
+
+\tableofcontents
+\clearpage
+
+\input{chapters/aknowledgements}
+\clearpage
+\input{chapters/aideclaration}
+\clearpage
+\pagenumbering{arabic}
+% =========================
+% MAIN TEXT
+% =========================
+\input{chapters/introduction}
+\input{chapters/literature}
+\input{chapters/empiricalstrategy}
+\input{chapters/conclusion}
+
+% =========================
+% BIBLIOGRAPHY
+% =========================
+\clearpage
+
+\phantomsection
+\section*{5. References}
+\addcontentsline{toc}{section}{5. References}
+
+\begingroup
+\renewcommand{\chapter}[2]{} % elimina el titulo gigante automatico
+\bibliographystyle{apalike}
+\bibliography{references}
+%\printbibliography
+\endgroup
+
+% =========================
+% APPENDICES
+% =========================
+\clearpage
+\appendix
+\input{appendix}
+
+\end{document}
